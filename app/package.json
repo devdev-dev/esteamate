@@ -10,7 +10,7 @@
     "prettier": "npx prettier --check \"src/**/*.{ts,tsx,css,json,js,jsx}\"",
     "prettier:write": "npx prettier --write \"src/**/*.{ts,tsx,json}\"",
     "lint": "npx eslint \"src/**/*.{ts,tsx}\"",
-    "lint:fix": "npx eslint --fix \"src/**/*.{ts,tsx}\"",
+    "lint:fix": "npx eslint --fix \"src/**/*.{ts,tsx}\""
   },
   "dependencies": {
     "react": "^17.0.1",
