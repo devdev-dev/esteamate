@@ -17,6 +17,10 @@ import { Link } from 'react-router-dom';
 export default function SignUpScreen() {
   const classes = useStyles();
 
+  const signUp = async () => {
+    alert('SIGNUP');
+  };
+
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
@@ -48,16 +52,12 @@ export default function SignUpScreen() {
               />
             </Grid>
           </Grid>
-          <Button type="submit" fullWidth variant="contained" color="primary" className={classes.submit}>
+          <Button type="submit" fullWidth variant="contained" color="primary" className={classes.submit} onClick={signUp}>
             Sign Up
           </Button>
           <Grid container justify="flex-end">
             <Grid item>
-              <Link to="/">
-                <MUILink href="#" variant="body2">
-                  Already have an account? Sign in
-                </MUILink>
-              </Link>
+              <Link to="/signin">Already have an account? Sign in</Link>
             </Grid>
           </Grid>
         </form>

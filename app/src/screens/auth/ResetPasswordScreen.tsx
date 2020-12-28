@@ -15,6 +15,10 @@ import { Link } from 'react-router-dom';
 export default function LoginScreen() {
   const classes = useStyles();
 
+  const resetPassword = async () => {
+    alert('RESET');
+  };
+
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
@@ -27,23 +31,15 @@ export default function LoginScreen() {
         </Typography>
         <form className={classes.form} noValidate>
           <TextField variant="outlined" margin="normal" required fullWidth id="email" label="Email Address" name="email" autoComplete="email" autoFocus />
-          <Button type="submit" fullWidth variant="contained" color="primary" className={classes.submit}>
+          <Button type="submit" fullWidth variant="contained" color="primary" className={classes.submit} onClick={resetPassword}>
             Reset Password
           </Button>
           <Grid container>
             <Grid item xs>
-              <Link to="/">
-                <MUILink href="#" variant="body2">
-                  Remember again? Sign in
-                </MUILink>
-              </Link>
+              <Link to="/signin">Remember again? Sign in</Link>
             </Grid>
             <Grid item>
-              <Link to="/signup">
-                <MUILink href="#" variant="body2">
-                  {"Don't have an account? Sign Up"}
-                </MUILink>
-              </Link>
+              <Link to="/signin/create">Don´t have an account? Sign Up</Link>
             </Grid>
           </Grid>
         </form>

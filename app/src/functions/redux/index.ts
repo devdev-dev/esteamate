@@ -1,24 +1,28 @@
 import { connectRouter, routerMiddleware, RouterState } from 'connected-react-router';
-import { createBrowserHistory, History } from 'history';
+import { createBrowserHistory } from 'history';
 import { applyMiddleware, combineReducers, compose, createStore } from 'redux';
 import counterReducer from './counterReducer';
 
 export const history = createBrowserHistory();
 
-export default function configureStore(preloadedState?: any) {
-  const composeEnhancer: typeof compose = (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-  const store = createStore(createRootReducer(history), preloadedState, composeEnhancer(applyMiddleware(routerMiddleware(history))));
+export default function configureStore(preloadedState: AppState) {
+  const store = createStore(
+    combineReducers({
+      router: connectRouter(history),
+      count: counterReducer
+    }),
+    preloadedState,
+    compose(applyMiddleware(routerMiddleware(history)))
+  );
 
   return store;
 }
 
-const createRootReducer = (history: History) =>
-  combineReducers({
-    count: counterReducer,
-    router: connectRouter(history)
-  });
-
-export interface State {
+export interface AppState {
+  router?: RouterState;
   count: number;
-  router: RouterState;
 }
+
+export const initialAppState: AppState = {
+  count: 0
+};

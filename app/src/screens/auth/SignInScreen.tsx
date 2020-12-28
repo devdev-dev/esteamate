@@ -17,6 +17,10 @@ import { Link } from 'react-router-dom';
 export default function LoginScreen() {
   const classes = useStyles();
 
+  const signIn = async () => {
+    alert('SIGNIN');
+  };
+
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
@@ -27,40 +31,30 @@ export default function LoginScreen() {
         <Typography component="h1" variant="h5">
           Sign in
         </Typography>
-        <form className={classes.form} noValidate>
-          <TextField variant="outlined" margin="normal" required fullWidth id="email" label="Email Address" name="email" autoComplete="email" autoFocus />
-          <TextField
-            variant="outlined"
-            margin="normal"
-            required
-            fullWidth
-            name="password"
-            label="Password"
-            type="password"
-            id="password"
-            autoComplete="current-password"
-          />
-          <FormControlLabel control={<Checkbox value="remember" color="primary" />} label="Remember me" />
-          <Button type="submit" fullWidth variant="contained" color="primary" className={classes.submit}>
-            Sign In
-          </Button>
-          <Grid container>
-            <Grid item xs>
-              <Link to="/reset">
-                <MUILink href="#" variant="body2">
-                  Forgot password?
-                </MUILink>
-              </Link>
-            </Grid>
-            <Grid item>
-              <Link to="/signup">
-                <MUILink href="#" variant="body2">
-                  {"Don't have an account? Sign Up"}
-                </MUILink>
-              </Link>
-            </Grid>
+        <TextField variant="outlined" margin="normal" required fullWidth id="email" label="Email Address" name="email" autoComplete="email" autoFocus />
+        <TextField
+          variant="outlined"
+          margin="normal"
+          required
+          fullWidth
+          name="password"
+          label="Password"
+          type="password"
+          id="password"
+          autoComplete="current-password"
+        />
+        <FormControlLabel control={<Checkbox value="remember" color="primary" />} label="Remember me" />
+        <Button type="submit" fullWidth variant="contained" color="primary" className={classes.submit} onClick={signIn}>
+          Sign In
+        </Button>
+        <Grid container>
+          <Grid item xs>
+            <Link to="/signin/reset">Forgot password?</Link>
           </Grid>
-        </form>
+          <Grid item>
+            <Link to="/signin/create">Don´t have an account? Sign Up</Link>
+          </Grid>
+        </Grid>
       </div>
       <Box mt={8}>
         <Copyright />
