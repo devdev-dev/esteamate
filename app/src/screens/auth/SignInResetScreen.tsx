@@ -27,7 +27,7 @@ export default function SignInResetScreen() {
           <LockOutlinedIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
-          Reset Password Request
+          Reset Account
         </Typography>
         <form className={classes.form} noValidate>
           <TextField variant="outlined" margin="normal" required fullWidth id="email" label="Email Address" name="email" autoComplete="email" autoFocus />
