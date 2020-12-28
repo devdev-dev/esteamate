@@ -14,11 +14,11 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export default function SignUpScreen() {
+export default function SignInCreateScreen() {
   const classes = useStyles();
 
-  const signUp = async () => {
-    alert('SIGNUP');
+  const createHandler = async () => {
+    alert('CREATE');
   };
 
   return (
@@ -52,7 +52,7 @@ export default function SignUpScreen() {
               />
             </Grid>
           </Grid>
-          <Button type="submit" fullWidth variant="contained" color="primary" className={classes.submit} onClick={signUp}>
+          <Button type="submit" fullWidth variant="contained" color="primary" className={classes.submit} onClick={createHandler}>
             Sign Up
           </Button>
           <Grid container justify="flex-end">

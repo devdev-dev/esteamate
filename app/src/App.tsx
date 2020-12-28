@@ -4,9 +4,9 @@ import { History } from 'history';
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import BottomAppBar from './components/BottomAppBar';
-import ResetPasswordScreen from './screens/auth/ResetPasswordScreen';
+import ResetPasswordScreen from './screens/auth/SignInResetScreen';
 import SignInScreen from './screens/auth/SignInScreen';
-import SignUpScreen from './screens/auth/SignUpScreen';
+import SignInCreateScreen from './screens/auth/SignInCreateScreen';
 
 interface AppProps {
   history: History;
@@ -19,9 +19,9 @@ const routes = (
   <Container>
     <BottomAppBar />
     <Switch>
-      <Route exact path="/" component={SignInScreen} />
-      <Route path="/signup" component={SignUpScreen} />
-      <Route path="/reset" component={ResetPasswordScreen} />
+      <Route exact path="/signin" component={SignInScreen} />
+      <Route path="/signin/create" component={SignInCreateScreen} />
+      <Route path="/signin/reset" component={ResetPasswordScreen} />
     </Switch>
   </Container>
 );

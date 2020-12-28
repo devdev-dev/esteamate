@@ -14,7 +14,7 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export default function LoginScreen() {
+export default function SignInScreen() {
   const classes = useStyles();
 
   const signIn = async () => {

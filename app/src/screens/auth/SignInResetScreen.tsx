@@ -12,10 +12,10 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export default function LoginScreen() {
+export default function SignInResetScreen() {
   const classes = useStyles();
 
-  const resetPassword = async () => {
+  const reset = async () => {
     alert('RESET');
   };
 
@@ -31,7 +31,7 @@ export default function LoginScreen() {
         </Typography>
         <form className={classes.form} noValidate>
           <TextField variant="outlined" margin="normal" required fullWidth id="email" label="Email Address" name="email" autoComplete="email" autoFocus />
-          <Button type="submit" fullWidth variant="contained" color="primary" className={classes.submit} onClick={resetPassword}>
+          <Button type="submit" fullWidth variant="contained" color="primary" className={classes.submit} onClick={reset}>
             Reset Password
           </Button>
           <Grid container>
