@@ -1,5 +1,6 @@
 import { connectRouter, routerMiddleware, RouterState } from 'connected-react-router';
 import { createBrowserHistory } from 'history';
+import { FirebaseReducer, firebaseReducer } from 'react-redux-firebase';
 import { applyMiddleware, combineReducers, compose, createStore } from 'redux';
 import counterReducer from './counterReducer';
 
@@ -9,6 +10,7 @@ export default function configureStore(preloadedState: AppState) {
   const store = createStore(
     combineReducers({
       router: connectRouter(history),
+      firebase: firebaseReducer,
       count: counterReducer
     }),
     preloadedState,
@@ -20,6 +22,7 @@ export default function configureStore(preloadedState: AppState) {
 
 export interface AppState {
   router?: RouterState;
+  firebase?: FirebaseReducer.Reducer;
   count: number;
 }
 

@@ -10,13 +10,22 @@ import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import React from 'react';
+import { useFirebase } from 'react-redux-firebase';
 import { Link } from 'react-router-dom';
 
 export default function SignInResetScreen() {
   const classes = useStyles();
+  const firebase = useFirebase();
 
   const reset = async () => {
-    alert('RESET');
+    await firebase
+      .resetPassword('esteem@deviantdev.com')
+      .then(result => {
+        console.log('result' + JSON.stringify(result));
+      })
+      .catch(error => {
+        console.log('error' + JSON.stringify(error));
+      });
   };
 
   return (
@@ -29,20 +38,18 @@ export default function SignInResetScreen() {
         <Typography component="h1" variant="h5">
           Reset Account
         </Typography>
-        <form className={classes.form} noValidate>
-          <TextField variant="outlined" margin="normal" required fullWidth id="email" label="Email Address" name="email" autoComplete="email" autoFocus />
-          <Button type="submit" fullWidth variant="contained" color="primary" className={classes.submit} onClick={reset}>
-            Reset Password
-          </Button>
-          <Grid container>
-            <Grid item xs>
-              <Link to="/signin">Remember again? Sign in</Link>
-            </Grid>
-            <Grid item>
-              <Link to="/signin/create">Don´t have an account? Sign Up</Link>
-            </Grid>
+        <TextField variant="outlined" margin="normal" required fullWidth id="email" label="Email Address" name="email" autoComplete="email" autoFocus />
+        <Button type="submit" fullWidth variant="contained" color="primary" className={classes.submit} onClick={reset}>
+          Reset Password
+        </Button>
+        <Grid container>
+          <Grid item xs>
+            <Link to="/signin">Remember again? Sign in</Link>
           </Grid>
-        </form>
+          <Grid item>
+            <Link to="/signin/create">Don´t have an account? Sign Up</Link>
+          </Grid>
+        </Grid>
       </div>
       <Box mt={8}>
         <Copyright />
